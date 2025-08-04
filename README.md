@@ -8,12 +8,36 @@ This project focuses on analyzing customer transaction data from an e-commerce p
 
 ## 🔧 Files Included
 
-| File Name                       | Description                                                                                                                  |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Shopper_spectrum.ipynb`        | Jupyter Notebook for EDA, RFM feature engineering, clustering, and similarity matrix creation                                |
-| `pr_recommendation.py`          | Streamlit web app integrating customer segmentation and product recommendation features                                      |
-| `rfm_kmeans_model.pkl`          | Serialized model file containing trained KMeans model, StandardScaler, PCA transformer, and cluster-to-segment label mapping |
-| `product_similarity_matrix.pkl` | Cosine similarity matrix of products for item-based collaborative filtering                                                  |
+| File                         | Purpose                                 |
+|------------------------------|-----------------------------------------|
+| `app.py` | Main Streamlit app                    |
+| `online_retail.csv`         | Transaction dataset                     |
+| `kmeans_model.pkl`          | Pretrained clustering model             |
+| `scaler.pkl`                | Pre-fitted scaler for RFM normalization |
+| `item_similarity.pkl`       | Product similarity matrix               |
+| `product_map.pkl`           | StockCode → Product name mapping        |
+| `requirements.txt`          | Required Python libraries               |
+
+---
+
+## 🚀 Features
+
+### 📊 Dashboard (EDA)
+- Top countries by transactions
+- Best-selling products
+- Monthly sales trend
+
+### 🎯 Product Recommendation
+- Input: Product **name**
+- Output: 5 similar products based on cosine similarity
+
+### 🔍 Customer Segmentation
+- Input: Recency, Frequency, Monetary
+- Output: Predicted customer segment:
+  - High-Value
+  - Regular
+  - Occasional
+  - At-Risk
 
 ---
 
@@ -53,11 +77,7 @@ pip install streamlit pandas numpy scikit-learn
 streamlit run pr_recommendation.py
 ```
 
-> Ensure the following files are in the same folder:
->
-> * `pr_recommendation.py`
-> * `rfm_kmeans_model.pkl`
-> * `product_similarity_matrix.pkl`
+> Ensure the above files are in the same folder
 
 ---
 
